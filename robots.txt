@@ -1,5 +1,5 @@
 User-Agent: *
 Disallow:
-Disallow: /single-portfolio.html
-Disallow: /single.html
-Disallow: /blog.html
+Disallow: /jp/single-portfolio.html
+Disallow: /jp/single.html
+Disallow: /jp/blog.html
