@@ -6,7 +6,7 @@ html
 body
 {
     background-color: #E2E0E0;
-    font-family: 'Montserrat', sans-serif, Roboto;
+    font-family: 'Montserrat', "Noto Sans Japanese", sans-serif;
     font-size: 18px;
     line-height: 35px;
     font-weight: 200;
