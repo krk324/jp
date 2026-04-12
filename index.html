@@ -297,6 +297,17 @@
       letter-spacing: 0.07em;
     }
 
+    .frag-sub {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: clamp(10px, 2.5vw, 12px);
+      color: #a8a095;
+      letter-spacing: 0.03em;
+      margin-top: 2px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
     .frag-body {
       font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
       font-size: 13px;
@@ -487,7 +498,7 @@
       <div class="fragment-detail">
         <div>
           <div class="frag-inner">
-            <p class="frag-body">治安の悪いシカゴの地域で生まれた。多様な国籍の人々に囲まれながら、生まれたアメリカよりも、日本の文化や技術に憧れる少年だった。ルーツは富山。早稲田大学国際教養学部、米ディポール大学ビジネススクールを経て、野村総合研究所に新卒入社。BEENOS社長室でベンチャー投資支援や越境EC事業に従事。GeneralAssemblyでプログラミングを学び、弁当デリバリーやマッチングアプリの起業を経験。🇺🇸と🇯🇵を行ったり来たりの、落ち着きない人生の始まり。</p>
+            <p class="frag-body">治安の悪いシカゴの地域で生まれた。多様な国籍の人々に囲まれて育った。ルーツは富山。父はアメリカで日本料理店を経営していた。父の店を通じて、日本という国を身近に感じていた。「お金を稼げ」——親からはずっとそう言われて育った。いつしか無意識に、何か大きな、漠然とした成功をしなければならないと思うようになっていた。</p>
           </div>
         </div>
       </div>
@@ -496,17 +507,36 @@
     <!-- z1-1 -->
     <div class="fragment" style="transition:opacity 1s ease 0.06s,transform 1s ease 0.06s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
+        <span class="frag-text">大企業から、社長の鞄持ち、そして起業</span>
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="fragment-detail">
+        <div>
+          <div class="frag-inner">
+            <p class="frag-body">幼少期からの日本への憧れから、野村総合研究所に新卒入社。今の若者がシリコンバレーに憧れるように、当時の自分にとって日本は世界一の技術と文化を持った革新的な国だった。だが、アメリカで自由に育ちすぎた自分には日本企業のカルチャーがまったく合わず、たった一年で退職。
+
+アメリカへ戻り、自分は起業したかったのだと改めて気づく。ビジネススクールで修士号を取得したが、起業したいという気持ちだけがあり目的が決まっていなかった。ボストンキャリアフォーラムでBEENOSの社長に出会い、起業家としての姿勢に惹かれ"鞄持ち"として社長室で働き始めた。身の丈以上の環境のなかで、新規事業の立ち上げやVCアソシエイトとして投資先の発掘・支援を経験。起業したい気持ちが抑えきれなくなっていった。
+
+BEENOSを退職し、米プログラミングブートキャンプ General Assembly を経て念願の起業。弁当デリバリーサービスを立ち上げ、UBERの進出を見越してすぐに撤退。当時まだ「出会い系」と怪しまれていたマッチングの領域で、野村総研時代の同僚と起業した。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- z1-2 -->
+    <div class="fragment" style="transition:opacity 1s ease 0.12s,transform 1s ease 0.12s;">
+      <button class="fragment-toggle" onclick="toggleFragment(this)">
         <span class="frag-text">500億円が一晩で消えた</span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
         <div>
           <div class="frag-inner">
-            <p class="frag-body">2016年、社員数名のコインチェックに2号社員として参画。海外事業開発責任者、マーケティング、人事、Web開発を担当。
+            <p class="frag-body">「起業したい」の裏側にあったのは「成功したい」という渇望だった。自分の事業を運営しながら関わり始めたコインチェックは、まだ社員数名だった。だが急成長の兆しが見えた。市場が伸びたとき、ここなら勝つ——自社サービスをすべて閉じてフルコミットを決めた。2号社員として、海外事業開発責任者、マーケティング、人事、Web開発を担当。
 
-              この間まで詐欺と言われていた暗号通貨——その電子的なデータを売るだけで、一年余りで会社は1日に数億円を稼ぐようになった。そして、約500億円がハッキングにより一晩で消えた。国際機関と連携した追跡をリードしながら、ずっと考えていた。
+              毎日が綱渡りだった。山のようなタスクを処理し続け、まるで機械のようだった。この間まで詐欺と言われていた暗号通貨——その電子的なデータを売るだけで、一年余りで会社は1日に数億円を稼ぐようになった。事業は永遠に伸びるのではないか。感覚が麻痺していた。
 
-              詐欺と呼ばれたものが富を生み、一晩でなくなる。お金とは何なのか。自分たちは本当に価値を生み出していたのか。
+              そして、約500億円がハッキングにより一晩で消えた。国際機関と連携した追跡をリードしながら、ずっと考えていた。自分たちの成功にばかり気を取られていた。そこにユーザーやメンバーの幸せはあったのか。自分自身は幸せだったといえるのか。
 
               M&amp;A後に退職。お金という幻想が崩れたあと、残ったのは問いだけだった。</p>
             <div class="frag-links">
@@ -518,8 +548,8 @@
       </div>
     </div>
 
-    <!-- z1-2 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.12s,transform 1s ease 0.12s;">
+    <!-- z1-3 -->
+    <div class="fragment" style="transition:opacity 1s ease 0.18s,transform 1s ease 0.18s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
         <span class="frag-text">もっと大きな意義と成功を求めシリコンバレーへ</span>
         <span class="toggle-icon">+</span>
@@ -531,7 +561,7 @@
 
               でも実際に見たのは、社会的な意義よりもお金という成功が優先される世界だった。資金調達、インナーサークル、会社のバリュエーションを上げるゲームと化したエコシステム。「世界を良くする」と言いながら、結局はお金を稼ぐことが最優先の構造。コインチェックで見た景色と、本質的には同じだった。
 
-              本当に良いこととは何なのか。お金を稼ぐことが正解なのか。本質的な幸福とは何か。社会的な意義と両立できないのか。答えは見つからないまま、問いだけが深くなっていった。</p>
+              本当に良いこととは何なのか。お金を稼ぐことが正解なのか。そもそも会社を伸ばすこと自体に興味がなくなっていた。関心を引いたのは、人はどうしたら幸せになるのか、ということだった。答えは見つからないまま、問いだけが深くなっていった。</p>
             <div class="frag-links">
               <a href="https://note.com/futurehuman/n/nfea5ae39709f" target="_blank" rel="noopener noreferrer"
                 class="frag-link">シリコンバレー体験記</a>
@@ -556,9 +586,9 @@
       <div class="fragment-detail">
         <div>
           <div class="frag-inner">
-            <p class="frag-body">お金という幻想も、成功という物差しも、いったん置いた。外側の基準で走るのをやめて、自分の内側にあった「やりたいこと」にフォーカスした。
+            <p class="frag-body">お金という幻想も、成功という物差しも、いったん置いた。自分の「やりたいこと」にフォーカスした。Spotifyで歌手デビューもしてみた。決まった道はもうない。やりたいと思ったことを、片っ端からやった。
 
-              Spotifyで歌手デビューもしてみた。決まった道はもうない。やりたいと思ったことを、片っ端からやった。でも何をやっても、意味を見いだせなくなっていた。</p>
+              幸せは外部の評価や数字で測れるものではなく、自分の中にあるのではないか——そう思い始めた。哲学、宇宙、心理学。手当たり次第に本を読み漁った。その中で特に心を打たれたのが、仏陀の瞑想修行だった。「悟り」というものを、自分の身体で体験してみたい。そう思った。</p>
           </div>
         </div>
       </div>
@@ -575,7 +605,7 @@
           <div class="frag-inner">
             <p class="frag-body">意味を探し続けて、ダンマーディッチャでの12日間のヴィパッサナー瞑想修行へ。完全な沈黙の中で、自分の内側だけを観察し続けた。
 
-              お金という幻想を手放した。成功という物差しも置いた。やりたいことも片っ端からやった。それでも満たされなかったのは、もっと深い場所に理由があった。自分を動かしていたのは「資本主義的な成功しないと認められない」という恐れと不安の感覚だった。外側の基準を手放したつもりで、内側にまだ恐れを抱えていた。
+              お金という幻想を手放した。成功という物差しも置いた。やりたいことも片っ端からやった。それでも満たされなかったのは、もっと深い場所に理由があった。自分を動かしていたのは「資本主義的な成功しないと認められない」という恐れと不安の感覚だった。富や名声、承認——20代の自分が欲しかったもの。それらが、さーっと消えていく感覚があった。外側の基準を手放したつもりで、内側にまだ恐れを抱えていた。
 
               これからは愛の感覚で人生を前に進めたい。そう思えたことが、12日間の沈黙がくれたものだった。毎日1時間の瞑想は今も続いている。</p>
             <div class="frag-links">
@@ -596,7 +626,7 @@
       <div class="fragment-detail">
         <div>
           <div class="frag-inner">
-            <p class="frag-body">愛の感覚で歩み始め、エクサウィザーズでWell-being AIプロダクトを立ち上げ、在籍中に上場を経験。瞑想以外の意識変容の手段として、コーチングも学び始めた。
+            <p class="frag-body">愛の感覚で歩み始め、エクサウィザーズでWell-being AIプロダクトを立ち上げ、在籍中に上場を経験。携わるすべての人の心を豊かにしたい。誰からも搾取しない仕組みを作りたい。どんなに市場が伸びていても、作る人のマインドでプロダクトの価値は決まる——そう信じていた。瞑想以外の意識変容の手段として、コーチングも学び始めた。
 
               社会課題を解決する。そう思って入った。しかし気がつけば、資本主義の力学に飲み込まれていた。シリコンバレーで外から眺めていた、社会的意義とお金の両立の難しさを、今度は自分ごととして体感した。
 
@@ -680,7 +710,7 @@
     <!-- z3-1 -->
     <div class="fragment" style="transition:opacity 1s ease 0.06s,transform 1s ease 0.06s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">家業を営む</span>
+        <span class="frag-text">家業を営む<span class="frag-sub">ao.inc. / 美容サロン9店舗</span></span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
@@ -698,7 +728,7 @@
     <!-- z3-2 -->
     <div class="fragment" style="transition:opacity 1s ease 0.12s,transform 1s ease 0.12s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">声(Podcast)で届ける</span>
+        <span class="frag-text">声(Podcast)で届ける<span class="frag-sub">戦略的幸福論 / 超実践的ヒモ理論 / STORYS 人生物語</span></span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
@@ -738,7 +768,7 @@
     <!-- z3-3 -->
     <div class="fragment" style="transition:opacity 1s ease 0.18s,transform 1s ease 0.18s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">人の変容の瞬間を、地図にする</span>
+        <span class="frag-text">人の変容の瞬間を、地図にする<span class="frag-sub">株式会社和百八 / STORYS.JP</span></span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
@@ -756,7 +786,7 @@
     <!-- z3-4 -->
     <div class="fragment" style="transition:opacity 1s ease 0.24s,transform 1s ease 0.24s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">108人で助け合う</span>
+        <span class="frag-text">108人で助け合う<span class="frag-sub">STORYS STAND / 池尻大橋</span></span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
@@ -775,7 +805,7 @@
     <!-- z3-5 -->
     <div class="fragment" style="transition:opacity 1s ease 0.30s,transform 1s ease 0.30s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">千年の森を育てる</span>
+        <span class="frag-text">千年の森を育てる<span class="frag-sub">SHINDO</span></span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
@@ -794,7 +824,7 @@
     <!-- z3-6 -->
     <div class="fragment" style="transition:opacity 1s ease 0.36s,transform 1s ease 0.36s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">内面と向き合う対話</span>
+        <span class="frag-text">内面と向き合う対話<span class="frag-sub">ICF認定コーチ</span></span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
@@ -873,7 +903,7 @@
                 </li>
                 <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
                   <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2014 – 2016</span>
-                  <span><span style="color:#302c28;">HACKMAI / BRIGHT CLASS（シカゴ）</span><span style="color:#8b857f;"> — 創業者</span></span>
+                  <span><span style="color:#302c28;">HACKMAI（シカゴ）/ BRIGHT CLASS（東京）</span><span style="color:#8b857f;"> — 創業者</span></span>
                 </li>
                 <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
                   <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2013 – 2014</span>
