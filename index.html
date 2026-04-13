@@ -421,6 +421,28 @@
         gap: 8px;
       }
     }
+
+    .breath {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1.8s ease, transform 1.8s ease;
+    }
+
+    .breath.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .breath-line-delayed {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1.8s ease 0.6s, transform 1.8s ease 0.6s;
+    }
+
+    .breath.is-visible .breath-line-delayed {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 </head>
 
@@ -571,6 +593,13 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
       </div>
     </div>
 
+    <!-- breath 1→2 -->
+    <div class="breath" style="padding:120px 0;text-align:center;">
+      <div style="width:40px;height:1px;background:rgba(192,184,173,0.3);margin:0 auto 32px;"></div>
+      <p style="font-family:'Zen Old Mincho',serif;font-size:13px;color:#c0b8ad;letter-spacing:0.15em;line-height:2.4;">一瞬だけ掴んだ成功の質感。</p>
+      <p class="breath-line-delayed" style="font-family:'Zen Old Mincho',serif;font-size:13px;color:#c0b8ad;letter-spacing:0.15em;line-height:2.4;margin-top:4px;">その先には何もなかった。</p>
+    </div>
+
     <!-- ── ZONE 2: 二 ── -->
     <div class="zone-label" style="padding:80px 0 16px;">
       <span
@@ -644,15 +673,17 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
     <!-- z2-3 -->
     <div class="fragment" style="transition:opacity 1s ease 0.18s,transform 1s ease 0.18s;">
       <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">笑いは、小さな変容だった</span>
+        <span class="frag-text">仏教とAIを探究していたら、芸人になっていた。</span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="fragment-detail">
         <div>
           <div class="frag-inner">
-            <p class="frag-body">コーチングを続けるなかで気づいた。コーチングにたどり着く時点で、その人はもう変容の道に入っている。問題は、その道に入る前の人たちだった。より多くの人の意識変容を促すにはどうしたらいいのか。
+            <p class="frag-body">コーチングを続けるなかで気づいたことがある。コーチングにたどり着く時点で、その人はもう変容の道に入っている。問題は、その道に入る前の人たちだった。
 
-              たどり着いたのが、お笑いだった。タイタンの学校へ入り、芸人カガヤキマンとして活動。人は常識から少しズレたときに気づき、笑う。笑いは小さな気づきであり、小さな変容。瞑想やコーチングよりも、裾野は圧倒的に広い。一番大きなファネルの入口で、同じ場所を目指していた。</p>
+たどり着いたのが、お笑いだった。タイタンの学校へ入り、芸人カガヤキマンとして活動。人は常識から少しズレたときに気づき、笑う。笑いは小さな気づきであり、小さな変容。瞑想やコーチングよりも、裾野は圧倒的に広い。一番大きなファネルの入口で、同じ場所を目指していた。
+
+思想を身体で検証する——ホモ・ルーデンスとしての自分が、ここで産まれた。</p>
             <div class="frag-links">
               <a href="https://www.youtube.com/watch?v=uLbldP4AGXY&t=4809s" target="_blank" rel="noopener noreferrer"
                 class="frag-link">カガヤキマン YouTube</a>
@@ -677,7 +708,7 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
 
               お金、成功、意味、承認——追いかけてきたものをひとつずつ手放してきた。その先で、肉体も、息すらも手放した。意識だけになった世界では、すべてがあり、すべてがなかった。
 
-              そこから戻ってきたとき、目の前の日常が奇跡だった。息ができること。家族がいること。感謝しかなかった。</p>
+              そこから戻ってきたとき、目の前の日常が奇跡だった。息ができること。家族がいること。感謝しかなかった。空を知ったとき、すべてを失ったのではなく——人生を、ゲームとして楽しめるようになった。</p>
             <div class="frag-links">
               <a href="https://note.com/futurehuman/n/n55784b4fc56c" target="_blank" rel="noopener noreferrer"
                 class="frag-link">臨死体験の記録（note）</a>
@@ -685,6 +716,12 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- breath 2→3 -->
+    <div class="breath" style="padding:120px 0;text-align:center;">
+      <div style="width:40px;height:1px;background:rgba(192,184,173,0.3);margin:0 auto 32px;"></div>
+      <p style="font-family:'Zen Old Mincho',serif;font-size:13px;color:#c0b8ad;letter-spacing:0.15em;line-height:2.4;">追うのをやめたとき、すでにここにあった。</p>
     </div>
 
     <!-- ── ZONE 3: 三 ── -->
@@ -701,7 +738,9 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
       <div class="fragment-detail">
         <div>
           <div class="frag-inner">
-            <p class="frag-body">空(くう)を見て、帰ってきた場所は「日常」だった。次世代のために日常の営みを守りたい。意識変容は、その入り口。気づく人が一人でも増えるよう、いまの活動すべてがここを軸に動いている。</p>
+            <p class="frag-body">空(くう)を見て、帰ってきた場所は「日常」だった。それは妥協ではなかった。外を追い、内に潜り、空まで手放した末に——目の前にあったものが、すべてだったと気づいた。
+
+次世代のために日常の営みを守りたい。意識変容は、その入り口。気づく人が一人でも増えるよう、いまの活動すべてがここを軸に動いている。</p>
           </div>
         </div>
       </div>
@@ -921,17 +960,9 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
                 <span style="color:#c0b8ad;">/</span>
                 <span>プロダクトマネージャー</span>
                 <span style="color:#c0b8ad;">/</span>
-                <span>デジタルプロダクトデザイナー</span>
+                <span>デジタルプロダクトデザイン</span>
                 <span style="color:#c0b8ad;">/</span>
                 <span>WEB開発</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>WEBマーケティング</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>WEB広告運用</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>海外事業開発</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>採用人事</span>
                 <span style="color:#c0b8ad;">/</span>
                 <span>ベンチャー投資</span>
                 <span style="color:#c0b8ad;">/</span>
@@ -1025,20 +1056,6 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
           style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">STORYS.JP</a>
       </div>
 
-      <div style="display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:40px;">
-        <span
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#新しいサービスを考えて作るのが好き</span>
-        <span
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#世のためにいい事をしたい人</span>
-        <span style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#テクノロジー信者</span>
-        <span style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#未来妄想癖</span>
-        <span style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#暇があれば読書</span>
-        <span style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#趣味は一人カラオケ</span>
-        <span
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#心身ともにハッピーに</span>
-        <span style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;">#二児のパパ</span>
-      </div>
-
       <div style="display:flex;flex-wrap:wrap;gap:6px 18px;">
         <a href="https://gsacademy.jp/" target="_blank" rel="noopener noreferrer"
           style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.35);">G's
@@ -1085,6 +1102,7 @@ BEENOSを退職し、米プログラミングブートキャンプ General Assem
     observeFade('.zone-label', 0.3);
     observeFade('.name-block', 0.3);
     observeFade('.tagline', 0.3);
+    observeFade('.breath', 0.3);
 
     var indicator = document.getElementById('scroll-indicator');
     var arrow = document.getElementById('scroll-arrow');
