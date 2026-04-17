@@ -23,1168 +23,639 @@
   <meta name="twitter:title" content="河畠 輝（カワバタカガヤキ） — KAGAYAKI KAWABATA">
   <meta name="twitter:description" content="資本主義的な幸せの先へ。シンギュラリティ時代の「意識変容」を、テクノロジー・日本文化・物語・日常・地域コミュニティから実践しています。">
   <meta name="twitter:image" content="https://kagakawa.com/jp/profile.jpg">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      background: #f4f1ec;
-    }
-
-    ::selection {
-      background: #d6cfc5;
-    }
-
-    @keyframes bgReveal {
-      0% {
-        background: #0a0908;
-      }
-
-      55% {
-        background: #0a0908;
-      }
-
-      80% {
-        background: #f4f1ec;
-      }
-
-      100% {
-        background: #f4f1ec;
-      }
-    }
-
-    @keyframes line1 {
-      0% {
-        opacity: 0;
-        color: #dcd7d0;
-      }
-
-      20% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      60% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      85% {
-        opacity: 1;
-        color: #302c28;
-      }
-
-      100% {
-        opacity: 1;
-        color: #302c28;
-      }
-    }
-
-    @keyframes line2 {
-      0% {
-        opacity: 0;
-        color: #dcd7d0;
-      }
-
-      20% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      55% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      80% {
-        opacity: 1;
-        color: #302c28;
-      }
-
-      100% {
-        opacity: 1;
-        color: #302c28;
-      }
-    }
-
-    @keyframes line3 {
-      0% {
-        opacity: 0;
-        color: #dcd7d0;
-      }
-
-      20% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      50% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      75% {
-        opacity: 1;
-        color: #302c28;
-      }
-
-      100% {
-        opacity: 1;
-        color: #302c28;
-      }
-    }
-
-    @keyframes line4 {
-      0% {
-        opacity: 0;
-        color: #dcd7d0;
-      }
-
-      20% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      45% {
-        opacity: 1;
-        color: #dcd7d0;
-      }
-
-      70% {
-        opacity: 1;
-        color: #302c28;
-      }
-
-      100% {
-        opacity: 1;
-        color: #302c28;
-      }
-    }
-
-    @keyframes scrollHint {
-
-      0%,
-      100% {
-        transform: translateY(0);
-        opacity: 0.6;
-      }
-
-      50% {
-        transform: translateY(6px);
-        opacity: 0.3;
-      }
-    }
-
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 32px;
-      position: relative;
-      background: #0a0908;
-      animation: bgReveal 8s ease forwards;
-    }
-
-    .name-block {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-
-    .name-block.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .tagline {
-      opacity: 0;
-      transition: opacity 1s ease 0.2s;
-    }
-
-    .tagline.is-visible {
-      opacity: 1;
-    }
-
-    .zone-label {
-      opacity: 0;
-      transition: opacity 1.2s ease;
-    }
-
-    .zone-label.is-visible {
-      opacity: 1;
-    }
-
-    .fragment {
-      opacity: 0;
-      transform: translateY(20px);
-      border-bottom: 1px solid rgba(180, 172, 160, 0.3);
-    }
-
-    .fragment.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .fragment-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 24px 0;
-      width: 100%;
-      text-align: left;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .toggle-icon {
-      font-size: 18px;
-      color: #a8a095;
-      flex-shrink: 0;
-      line-height: 1;
-      transition: transform 0.3s ease;
-      font-weight: 300;
-    }
-
-    .fragment-toggle.is-open .toggle-icon {
-      transform: rotate(45deg);
-    }
-
-    .fragment-detail {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.5s ease;
-    }
-
-    .fragment-detail.is-open {
-      grid-template-rows: 1fr;
-    }
-
-    .fragment-detail>div {
-      overflow: hidden;
-    }
-
-    #scroll-indicator {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .frag-text {
-      font-family: 'Zen Old Mincho', 'Yu Mincho', serif;
-      font-size: clamp(15px, 3.8vw, 20px);
-      color: #302c28;
-      line-height: 1.85;
-      letter-spacing: 0.07em;
-    }
-
-    .frag-sub {
-      display: block;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: clamp(10px, 2.5vw, 12px);
-      color: #a8a095;
-      letter-spacing: 0.03em;
-      margin-top: 2px;
-      font-weight: 400;
-      line-height: 1.4;
-    }
-
-    .frag-body {
-      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-      font-size: 13px;
-      color: #5e5850;
-      line-height: 2.05;
-      letter-spacing: 0.02em;
-      margin: 0;
-      white-space: pre-line;
-    }
-
-    .frag-link {
-      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
-      font-size: 11.5px;
-      color: #8f8780;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: rgba(160, 152, 140, 0.4);
-    }
-
-    .frag-links {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 16px;
-    }
-
-    .frag-inner {
-      padding: 0 0 28px 0;
-    }
-
-    .pod-card {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.25s ease;
-    }
-
-    .pod-card:hover {
-      opacity: 0.72;
-    }
-
-    .pod-card img {
-      width: 60px;
-      height: 60px;
-      border-radius: 4px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .pod-card span {
-      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
-      font-size: 12px;
-      color: #706a62;
-      line-height: 1.65;
-      white-space: pre-line;
-    }
-
-    .pod-list {
-      margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .lang-switcher {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Zen Old Mincho', 'Yu Mincho', serif;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      padding: 9px 15px;
-      background: rgba(244, 241, 236, 0.78);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(180, 172, 160, 0.3);
-      border-radius: 2px;
-    }
-
-    .lang-switcher a {
-      color: #8f8780;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .lang-switcher a:hover {
-      color: #302c28;
-    }
-
-    .lang-switcher .current {
-      color: #302c28;
-      font-weight: 700;
-    }
-
-    .lang-switcher .divider {
-      color: #c4bdb2;
-    }
-
-    @media (max-width: 640px) {
-      .lang-switcher {
-        top: 14px;
-        right: 14px;
-        padding: 7px 12px;
-        font-size: 10px;
-        gap: 8px;
-      }
-    }
-
-    .breath {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 1.8s ease, transform 1.8s ease;
-    }
-
-    .breath.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .breath-line-delayed {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 1.8s ease 0.6s, transform 1.8s ease 0.6s;
-    }
-
-    .breath.is-visible .breath-line-delayed {
-      opacity: 1;
-      transform: none;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/site.css">
+  <script defer src="./js/site.js"></script>
 </head>
 
 <body>
 
-  <!-- LANGUAGE SWITCHER -->
-  <nav class="lang-switcher" aria-label="Language">
-    <span class="current" aria-current="page">JP</span>
-    <span class="divider" aria-hidden="true">/</span>
-    <a href="https://kagakawa.com/" aria-label="Switch to English">EN</a>
-  </nav>
+  <div class="progress-line" aria-hidden="true"></div>
 
-  <!-- HERO -->
+  <!-- HERO — 成功を追い、真理を追い、また日常に。 -->
   <section class="hero">
-    <div style="text-align:center;">
-      <p
-        style="font-family:'Zen Old Mincho','Yu Mincho',serif;font-size:clamp(20px,5vw,30px);font-weight:400;line-height:2.5;letter-spacing:0.14em;">
-        <span
-          style="display:inline-block;opacity:0;color:#302c28;animation:line1 6s ease 0.5s forwards">成功を追い、</span><br>
-        <span
-          style="display:inline-block;opacity:0;color:#302c28;animation:line2 6s ease 1.2s forwards">真理を追い、</span><br>
-        <span
-          style="display:inline-block;opacity:0;color:#302c28;animation:line3 6s ease 1.9s forwards">また日常に。</span>
-      </p>
+    <div class="hero-lines" aria-label="成功を追い、真理を追い、また日常に。">
+      <p>成功を追い、</p>
+      <p>真理を追い、</p>
+      <p>また日常に。</p>
     </div>
+    <svg class="hero-stroke" width="2" height="120" viewBox="0 0 2 120" aria-hidden="true">
+      <line x1="1" y1="0" x2="1" y2="120" stroke="currentColor" stroke-width="1" style="color:var(--c-stone-6);" />
+    </svg>
     <div id="scroll-indicator">
-      <span
-        style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:10px;color:#a8a095;letter-spacing:0.2em;">scroll</span>
+      <span>scroll</span>
       <div id="scroll-arrow">
-        <svg width="14" height="36" viewBox="0 0 14 36">
-          <line x1="7" y1="0" x2="7" y2="28" stroke="#a8a095" stroke-width="1" />
-          <polyline points="2,24 7,30 12,24" stroke="#a8a095" stroke-width="1" fill="none" />
+        <svg width="14" height="36" viewBox="0 0 14 36" aria-hidden="true">
+          <line x1="7" y1="0" x2="7" y2="28" stroke="currentColor" stroke-width="1" style="color:var(--c-stone-3);" />
+          <polyline points="2,24 7,30 12,24" stroke="currentColor" stroke-width="1" fill="none" style="color:var(--c-stone-3);" />
         </svg>
       </div>
     </div>
   </section>
 
-  <!-- NAME BLOCK -->
-  <section style="padding:80px 32px 0;max-width:640px;margin:0 auto;">
+  <!-- PRELUDE -->
+  <section class="prelude">
     <div class="name-block">
-      <p
-        style="font-family:'Zen Old Mincho',serif;font-size:11px;color:#a8a095;letter-spacing:0.22em;margin-bottom:12px;">
-        KAGAYAKI KAWABATA</p>
-      <h2
-        style="font-family:'Zen Old Mincho',serif;font-size:clamp(28px,7vw,44px);color:#302c28;font-weight:700;letter-spacing:0.16em;line-height:1.4;margin:0;">
-        河畠 輝</h2>
-      <p
-        style="font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:12px;color:#8f8780;margin-top:12px;letter-spacing:0.06em;">
-        Podcaster / Executive Coach / Dad</p>
+      <p class="name-romaji">KAGAYAKI KAWABATA</p>
+      <h1 class="name-jp">河畠 輝</h1>
+      <p class="name-role">Podcaster / Executive Coach / Dad</p>
     </div>
   </section>
 
-  <!-- TAGLINE -->
-  <section class="tagline" style="max-width:640px;margin:0 auto;padding:36px 32px 0;">
-    <p
-      style="font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13.5px;color:#6b6560;line-height:2;letter-spacing:0.04em;">
-      資本主義的な幸せの限界を感じ、シンギュラリティ時代の「意識変容」を、テクノロジー・日本文化・物語・日常・地域コミュニティから実践しています。</p>
+  <section class="tagline">
+    <p>資本主義的な幸せの限界を感じ、シンギュラリティ時代の「意識変容」を、テクノロジー・日本文化・物語・日常・地域コミュニティから実践しています。</p>
   </section>
 
-  <!-- FRAGMENTS -->
-  <main style="max-width:640px;margin:0 auto;padding:20px 32px 100px;">
+  <!-- MAIN NARRATIVE -->
+  <main class="main">
 
-    <!-- ── ZONE 1: 一 ── -->
-    <div class="zone-label" style="padding:80px 0 16px;">
-      <span style="font-family:'Zen Old Mincho',serif;font-size:15px;color:#c0b8ad;letter-spacing:0.2em;">一　成功を追う</span>
-    </div>
+    <!-- ── ZONE 1: 一 成功を追う ── -->
+    <section class="zone" id="zone-1">
+      <header class="zone-head">
+        <span class="zone-kanji" aria-hidden="true">一</span>
+        <span class="zone-sub">一　成功を追う</span>
+      </header>
+      <span class="zone-stroke" aria-hidden="true"></span>
 
-    <!-- z1-0 -->
-    <div class="fragment" style="transition:opacity 1s ease 0s,transform 1s ease 0s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">シカゴの銃声が聞こえる街で生まれた</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">銃声が日常だったシカゴの一角で生まれた。ルーツは富山。父はその街で日本料理店を営み、店のカウンター越しに「日本」を見て育った。親からずっと言われていたのは、ひとつだけ。「お金を稼げ」——いつしかその言葉が、漠然とした成功への渇望に変わっていた。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z1-1 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.06s,transform 1s ease 0.06s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">大企業から、社長の鞄持ち、そして起業</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">日本への憧れから野村総合研究所に新卒入社。今の若者がシリコンバレーに向かうように、当時の自分にとって日本は世界一の革新国だった。だが、アメリカで自由に育ちすぎた自分には日本企業のカルチャーが合わず、一年で辞めた。
-
-アメリカに戻り、ビジネススクールで修士号を取得。ボストンキャリアフォーラムでBEENOSの社長に出会い、起業家としての姿勢に惹かれ"鞄持ち"として社長室に飛び込んだ。VCアソシエイトとして多くの起業家と会ううちに、自分も起業したい気持ちが抑えきれなくなった。
-
-BEENOSを退職し、米プログラミングブートキャンプ General Assembly を経て念願の起業。弁当デリバリーサービスを立ち上げたが、UBER EATSの進出を見越して撤退。次に選んだのは、まだ「出会い系」と怪しまれていたマッチングアプリだった。野村総研時代の同僚と共同創業した。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z1-2 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.12s,transform 1s ease 0.12s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">500億円が一晩で消えた</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">「起業したい」の裏側にあったのは「成功したい」という渇望だった。自分の事業を運営しながら関わり始めたコインチェックは、まだ社員数名だった。創業者が圧倒的に優れた技術者であったこと。そして口座開設のUXがシンプルでユーザーに寄り添っていたこと。市場が伸びたとき、ここなら勝つ——自社サービスをすべて閉じてフルコミットを決めた。2号社員として、海外事業開発責任者、マーケティング、人事、Web開発を担当。
-
-              毎日が綱渡りだった。山のようなタスクを処理し続け、まるで機械のようだった。この間まで詐欺と言われていた暗号通貨——その電子的なデータを売るだけで、一年余りで会社は1日に数億円を稼ぐようになった。事業は永遠に伸びるのではないか——そう錯覚するほど、感覚は麻痺していた。
-
-              ある朝、約500億円がハッキングで一晩にして消えた。国際機関と連携した追跡をリードしながら、ずっと考えていた。自分たちの成功にばかり気を取られていた。そこにユーザーやメンバーの幸せはあったのか。自分自身は幸せだったといえるのか。
-
-              M&amp;Aを経て退職した。お金という幻想が崩れたあと、手元に残ったのは問いだった。</p>
-            <div class="frag-links">
-              <a href="https://blockchainindustrygroup.org/coincheck-japans-largest-cryptocurrency-exchange-bitcoin-payment-processor/"
-                target="_blank" rel="noopener noreferrer" class="frag-link">Coincheck — Blockchain Industry Group</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z1-3 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.18s,transform 1s ease 0.18s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">もっと大きな意義と成功を求めシリコンバレーへ</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">お金の幻想が崩れたあと、もっと大きな意義のために働く人たちに会いたくて、シリコンバレーへ渡った。Tradecraftでプロダクトデザインとマネジメントを学び、日米のスタートアップを支援した。
-
-              でも実際に見たのは、社会的な意義よりも金銭的な成功が優先される世界だった。資金調達、インナーサークル、会社のバリュエーションを上げるゲームと化したエコシステム。「世界を良くする」と言いながら、お金を稼ぐことが最優先の構造。コインチェックで見た景色と、本質的には同じだった。
-
-              会社を伸ばすこと自体に興味を失っていた。唯一残った関心は、人はどうしたら幸せになれるのか、ということだった。</p>
-            <div class="frag-links">
-              <a href="https://note.com/futurehuman/n/nfea5ae39709f" target="_blank" rel="noopener noreferrer"
-                class="frag-link">シリコンバレー体験記</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- breath 1→2 -->
-    <div class="breath" style="padding:120px 0;text-align:center;">
-      <div style="width:40px;height:1px;background:rgba(143,135,128,0.25);margin:0 auto 32px;"></div>
-      <p style="font-family:'Zen Old Mincho',serif;font-size:clamp(14px,3.5vw,16px);color:#8f8780;letter-spacing:0.15em;line-height:2.4;">一瞬だけ掴んだ成功の質感。</p>
-      <p class="breath-line-delayed" style="font-family:'Zen Old Mincho',serif;font-size:clamp(14px,3.5vw,16px);color:#8f8780;letter-spacing:0.15em;line-height:2.4;margin-top:4px;">そこに満足感はなかった。</p>
-    </div>
-
-    <!-- ── ZONE 2: 二 ── -->
-    <div class="zone-label" style="padding:80px 0 16px;">
-      <span
-        style="font-family:'Zen Old Mincho',serif;font-size:15px;color:#c0b8ad;letter-spacing:0.2em;">二　真理を追う</span>
-    </div>
-
-    <!-- z2-0 -->
-    <div class="fragment" style="transition:opacity 1s ease 0s,transform 1s ease 0s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">やりたいことを、片っ端から</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">お金も成功も、いったん置いた。決まった道はもうない。Spotifyで歌手デビューしてみたり、哲学や宇宙論を読み漁ったり——やりたいと思ったことを片っ端からやった。
-
-              幸せは外の評価ではなく、自分の内側にあるのではないか。その問いを最も深く、最も長く追究していたのが仏陀だった。「悟り」を自分の身体で体験してみたい。そう思った。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z2-1 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.06s,transform 1s ease 0.06s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">12日間、誰とも話さなかった</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">ダンマーディッチャでの12日間のヴィパッサナー瞑想修行。完全な沈黙の中で、自分の内側だけを観察し続けた。
-
-              手放してきたはずだった。お金も、成功も、肩書きも。それでも満たされなかったのは、もっと深い場所に理由があった。自分を動かしていたのは「成功をしないと認められない」という恐れと不安の感覚だった。富や名声、承認——20代の自分が欲しかったもの。それらが、さーっと消えていく感覚があった。
-
-              これからは愛の感覚で生きたい。12日間の沈黙がくれたのは、その一点だった。以来、毎朝の瞑想が続いている。</p>
-            <div class="frag-links">
-              <a href="https://note.com/futurehuman/n/n32259e5833fd" target="_blank" rel="noopener noreferrer"
-                class="frag-link">ヴィパッサナー体験記</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z2-2 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.12s,transform 1s ease 0.12s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">社会課題の解決すら、エゴだった</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">愛の感覚で歩み始めた先に選んだのが、エクサウィザーズだった。Well-being AIプロダクトを立ち上げ、在籍中に上場を経験。社会課題を解決する——そう信じて入った。
-
-              しかし気がつけば、資本主義の力学に飲み込まれていた。シリコンバレーで外から眺めていた構造の中に、今度は自分がいた。
-
-              そしてもうひとつ気づいた。社会課題を解決したいという善意の奥に、「何かに認められたい自分」がいた。それはヴィパッサナー瞑想で感じた愛ではなかった。
-            </p>
-            <div class="frag-links">
-              <a href="https://note.com/futurehuman/n/n4a0d86b4c42c" target="_blank" rel="noopener noreferrer"
-                class="frag-link">自己紹介 note</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z2-3 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.18s,transform 1s ease 0.18s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">仏教とAIを探究していたら、芸人になっていた。</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">コーチングを続けるなかで気づいたことがある。コーチングにたどり着く時点で、その人はもう変容の道に入っている。問題は、その手前にいる人たちだった。
-
-たどり着いたのが、お笑いだった。タイタンの学校へ入り、芸人カガヤキマンとして活動。人は常識から少しズレたときに気づき、笑う。瞑想やコーチングと、同じ山を別ルートで登っていた。
-
-思想を遊びながら検証する——そんな生き方がはじまった。</p>
-            <div class="frag-links">
-              <a href="https://www.youtube.com/watch?v=uLbldP4AGXY&t=4809s" target="_blank" rel="noopener noreferrer"
-                class="frag-link">カガヤキマン YouTube</a>
-              <a href="https://note.com/futurehuman/n/nf21c24336ea3" target="_blank" rel="noopener noreferrer"
-                class="frag-link">養成所に入った理由（note）</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z2-4 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.24s,transform 1s ease 0.24s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">死の淵で、空(くう)を見た</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">意識変容の最前線にあるプログラムで、臨死体験をした。この世とあの世の狭間で見たのは「空(くう)」だった。
-
-              お金も成功も意味も、すでに手放してきた。ここではさらに、肉体も、息すらも手放した。意識だけになった世界では、すべてがあり、すべてがなかった。
-
-              そこから戻ってきたとき、息ができることが奇跡だった。家族がいることが奇跡だった。空(くう)を体験したら、日常が輝いた。</p>
-            <div class="frag-links">
-              <a href="https://note.com/futurehuman/n/n55784b4fc56c" target="_blank" rel="noopener noreferrer"
-                class="frag-link">臨死体験の記録（note）</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- breath 2→3 -->
-    <div class="breath" style="padding:120px 0;text-align:center;">
-      <div style="width:40px;height:1px;background:rgba(143,135,128,0.25);margin:0 auto 32px;"></div>
-      <p style="font-family:'Zen Old Mincho',serif;font-size:clamp(14px,3.5vw,16px);color:#8f8780;letter-spacing:0.15em;line-height:2.4;">手放すたびに、本当に大切なコトが見えてきた。</p>
-    </div>
-
-    <!-- ── ZONE 3: 三 ── -->
-    <div class="zone-label" style="padding:80px 0 16px;">
-      <span style="font-family:'Zen Old Mincho',serif;font-size:15px;color:#c0b8ad;letter-spacing:0.2em;">三　また日常に</span>
-    </div>
-
-    <!-- z3-0 -->
-    <div class="fragment" style="transition:opacity 1s ease 0s,transform 1s ease 0s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">日常に帰ってきた</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">空を見て、帰ってきた場所は日常だった。妥協ではない。外を追い、内に潜り、すべてを手放した末に、目の前にあるものがすべてだと気づいた。
-
-AIが人間の知性を超えていく時代に入った。だからこそ、自分の内側と向き合う力が要る。意識が変われば、生き方が変わる。生き方が変わり、世界をメタ認知できると、目の前の日常を大切にできる人が増える。これまでの自分の旅路が教えてくれたのは、そういうことだった。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-0b -->
-    <div class="fragment" style="transition:opacity 1s ease 0.03s,transform 1s ease 0.03s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">意識変容の場をつくる</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">成功を追い、真理を追い、日常に還った。その旅路で気づいた。人の意識は、情報では変わらない。葛藤に直面した時、対話で問われたとき、同じ場を共有した時——体験を通じてしか、人は本当には変わらない。
-
-AI時代にこそ、その体験を意図的につくる必要がある。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-1 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.06s,transform 1s ease 0.06s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">家業を営む<span class="frag-sub">ao.inc. / 美容サロン9店舗</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">夫婦でao.inc.を経営。美容サロン9店舗。AIがどれだけ進化しても、人の手で人を美しくし、ホスピタリティの中で誰かを癒す体験は代替できない。テクノロジーが加速するほど、人間が人間に向き合う時間の価値は上がっていく。その時間を生み出す場を、経営でつくっている。</p>
-            <div class="frag-links">
-              <a href="https://ao-inc.company/" target="_blank" rel="noopener noreferrer" class="frag-link">ao. inc.</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-2 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.12s,transform 1s ease 0.12s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">声(Podcast)で届ける<span class="frag-sub">戦略的幸福論 / 超実践的ヒモ理論 / STORYS 人生物語</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">物語、意識変容、ポスト資本主義——テーマは違っても、すべて「気づきの入り口」を声で届けるための番組。</p>
-            <div class="pod-list">
-              <a href="https://open.spotify.com/show/4IT6zgmcXa4PL4HlvAnkCL?si=6a1dbf5cb0754e05&amp;nd" target="_blank"
-                rel="noopener noreferrer" class="pod-card">
-                <img src="./pod-strategic.avif" alt="戦略的幸福論">
-                <span>戦略的幸福論&#10;〜AI時代をどう生きる？〜</span>
-              </a>
-              <a href="https://open.spotify.com/show/7ceyWzwydxB5Ycmj5jlkTp?si=786d3fbfd23b4496" target="_blank"
-                rel="noopener noreferrer" class="pod-card">
-                <img src="./pod-himo.avif" alt="超実践的ヒモ理論">
-                <span>超実践的ヒモ理論&#10;〜ポスト資本主義の生きかた大公開〜</span>
-              </a>
-              <a href="https://open.spotify.com/show/5XJYg9A8Th17oR3D5uC67j?si=2506386665864b77" target="_blank"
-                rel="noopener noreferrer" class="pod-card">
-                <img src="./pod-storys.avif" alt="STORYS 人生物語">
-                <span>STORYS 人生物語&#10;｜あなたの物語、聴かせてください。</span>
-              </a>
-            </div>
-            <div class="frag-links">
-              <a href="https://open.spotify.com/show/4IT6zgmcXa4PL4HlvAnkCL?si=6a1dbf5cb0754e05&amp;nd" target="_blank"
-                rel="noopener noreferrer" class="frag-link">戦略的幸福論</a>
-              <a href="https://open.spotify.com/show/7ceyWzwydxB5Ycmj5jlkTp?si=786d3fbfd23b4496" target="_blank"
-                rel="noopener noreferrer" class="frag-link">超実践的ヒモ理論</a>
-              <a href="https://open.spotify.com/show/5XJYg9A8Th17oR3D5uC67j?si=2506386665864b77" target="_blank"
-                rel="noopener noreferrer" class="frag-link">STORYS 人生物語</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-2b -->
-    <div class="fragment" style="transition:opacity 1s ease 0.18s,transform 1s ease 0.18s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">声の力で、つながりを育てる<span class="frag-sub">STORYS Podcast Studio</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">ポッドキャスト制作を企画から公開まで支援するスタジオ。コーチングで発信者自身の物語を引き出し、声に乗せるところから始める。届けたいのは上手な番組ではなく、聴いた人の何かが変わるコンテンツ。</p>
-            <div class="frag-links">
-              <a href="https://nexuspodcast.studio.site/" target="_blank" rel="noopener noreferrer" class="frag-link">STORYS Podcast Studio</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-3 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.24s,transform 1s ease 0.24s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">人生物語から変容の瞬間を、地図にする<span class="frag-sub">STORYS.JP</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">株式会社和百八 発起人・取締役。人の人生の背景にある物語を、語り・残し・届けるプラットフォーム STORYS.JP を運営。深いインタビューで変容の瞬間を捉え、それを次の誰かの気づきにつなげる。</p>
-            <div class="frag-links">
-              <a href="https://storys.jp" target="_blank" rel="noopener noreferrer" class="frag-link">STORYS.JP</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-4 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.30s,transform 1s ease 0.30s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">108人で助け合う<span class="frag-sub">STORYS STAND / 池尻大橋</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">ポッドキャストスタジオ・共同書店・コワーキングを備えた、108名限定の会員制拠点。池尻大橋と沖縄を皮切りに展開する。声と本と人が交わる場所で、意識変容が自然に起きる生態系をつくる。</p>
-            <div class="frag-links">
-              <a href="https://storyspodcasthub.vercel.app/" target="_blank" rel="noopener noreferrer"
-                class="frag-link">STORYS STAND</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-5 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.36s,transform 1s ease 0.36s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">千年の森を育てる<span class="frag-sub">SHINDO</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">SHINDO — 千年の森を育む農業のカタチを共創するプロジェクト。創設メンバーとして参画。衣食住、コミュニティ、エネルギーを自ら作り出す——意識変容の先にある生き方を、土の上から実践する。</p>
-            <div class="frag-links">
-              <a href="https://shindoproject.com/" target="_blank" rel="noopener noreferrer"
-                class="frag-link">SHINDO</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-6 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.42s,transform 1s ease 0.42s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">AIの劇的進化を、現場から伴走する<span class="frag-sub">Creative2 / AI顧問</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">メディア企業Creative2のAI顧問として2025年から参画。急激に進化するAIを、事業の現場から伴走しながら体験している。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- z3-7 -->
-    <div class="fragment" style="transition:opacity 1s ease 0.48s,transform 1s ease 0.48s;">
-      <button class="fragment-toggle" onclick="toggleFragment(this)">
-        <span class="frag-text">内面と向き合う対話<span class="frag-sub">ICF認定コーチ</span></span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="fragment-detail">
-        <div>
-          <div class="frag-inner">
-            <p class="frag-body">瞑想で意識の変容を届けたいという願いが生まれた。でも瞑想は万人の入口にはならない。対話なら、日常の延長線上で人は変われる。自分自身が恐れと不安で走り続け、エゴに気づき、愛の感覚に立ち戻った経験があるからこそ、他者の内面の変容に寄り添える。コーチングは、目の前のひとりと向き合う、もっとも静かな意識変容の手段。
-
-              国際コーチング連盟認定コーチ（ACC）。累計クライアント数160人以上、累計セッション時間500時間以上（2026/3/15時点）。
-
-              過去のクライアント：シード〜シリーズB起業家 / 社会起業家 / 元外資系日本法人CEO / 学生起業家 / 元大手IT外資系PM / 大手外資系コンサルタント / スタートアップ役員 / 急成長スタートアップCMO / デザイン会社CEO / デザイン会社役員 / 大手外資系エンタメ企業マネージャー / 美容系会社CEO / メガベンチャー開発責任者 / メガベンチャー事業責任者 / フリーランス / プロコーチ / キャリアコンサルタント / お笑い芸人</p>
-            <div class="frag-links">
-              <a href="https://kagakawa.notion.site/63d495c976034993b75506254a00edb9" target="_blank"
-                rel="noopener noreferrer" class="frag-link">コーチングについて</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- BACKGROUND & STRENGTHS -->
-  <section style="max-width:640px;margin:0 auto;padding:0 32px 80px;">
-    <div>
-      <p style="font-family:'Zen Old Mincho','Yu Mincho',serif;font-size:13px;color:#c0b8ad;letter-spacing:0.2em;margin:0;padding:56px 0 16px;">別記</p>
-
-      <!-- 経歴 -->
-      <div class="fragment" style="transition:opacity 1s ease 0s,transform 1s ease 0s;">
-        <button class="fragment-toggle" onclick="toggleFragment(this)">
-          <span class="frag-text">経歴</span>
-          <span class="toggle-icon">+</span>
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">シカゴの銃声が聞こえる街で生まれた</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
         </button>
         <div class="fragment-detail">
           <div>
             <div class="frag-inner">
-              <p
-                style="font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;color:#302c28;line-height:1.9;margin:0 0 22px;letter-spacing:0.03em;">
-                大企業、中小企業、ベンチャーキャピタル、起業、スモビジ経営、フリーランス、急成長ベンチャー、上場前後と多様なフェーズを経験を活かした支援をしています。</p>
-              <!-- career timeline -->
-              <ul style="list-style:none;padding:0;margin:0 0 32px;font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;color:#6b6560;line-height:1.7;">
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2026 — 現在</span>
-                  <span><span style="color:#302c28;">株式会社和百八（STORYS.JP）</span><span style="color:#8b857f;"> — 発起人 / 取締役</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2025 — 現在</span>
-                  <span><span style="color:#302c28;">Creative2</span><span style="color:#8b857f;"> — AI 顧問</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2022 — 現在</span>
-                  <span><span style="color:#302c28;">ao. inc.</span><span style="color:#8b857f;"> — 取締役</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2022 — 現在</span>
-                  <span><span style="color:#302c28;">G's ACADEMY</span><span style="color:#8b857f;"> — メンター</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2020 – 2024</span>
-                  <span><span style="color:#302c28;">エクサウィザーズ</span><span style="color:#8b857f;"> — プロダクトマネージャー / UX デザイナー</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2018 – 2019</span>
-                  <span><span style="color:#302c28;">IssueHunt株式会社</span><span style="color:#8b857f;"> — COO / UI/UX デザイナー / グロース</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2018</span>
-                  <span><span style="color:#302c28;">Tradecraft（サンフランシスコ）</span><span style="color:#8b857f;"> — プロダクトデザイナー</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2016 – 2018</span>
-                  <span><span style="color:#302c28;">コインチェック</span><span style="color:#8b857f;"> — 2人目社員 → 海外事業責任者 → アドバイザー</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2015 — 現在</span>
-                  <span><span style="color:#302c28;">独立 / フリーランス</span><span style="color:#8b857f;"> — PM / エグゼクティブコーチ / エンジェル投資家 / AI アドバイザー / ポッドキャスター</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2015</span>
-                  <span><span style="color:#302c28;">侍エンジニア塾</span><span style="color:#8b857f;"> — 講師</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2014 – 2016</span>
-                  <span><span style="color:#302c28;">HACKMAI（シカゴ）/ BRIGHT CLASS（東京）</span><span style="color:#8b857f;"> — 創業者</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid rgba(180,172,160,0.2);">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2013 – 2014</span>
-                  <span><span style="color:#302c28;">BEENOS</span><span style="color:#8b857f;"> — ベンチャー投資アソシエイト</span></span>
-                </li>
-                <li style="display:grid;grid-template-columns:92px 1fr;gap:14px;padding:11px 0;">
-                  <span style="font-size:12px;color:#a39a8e;font-variant-numeric:tabular-nums;letter-spacing:0.02em;">2010 – 2011</span>
-                  <span><span style="color:#302c28;">野村総合研究所</span><span style="color:#8b857f;"> — システムアナリスト</span></span>
-                </li>
-              </ul>
-              <h4 style="font-family:'Zen Old Mincho',serif;font-size:12px;color:#8b857f;letter-spacing:0.18em;font-weight:normal;margin:0 0 14px;">スキル</h4>
-              <div
-                style="display:flex;flex-wrap:wrap;gap:8px 12px;font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:12px;color:#8b857f;line-height:1.6;">
-                <span>新規事業開発</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>プロダクトマネージャー</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>デジタルプロダクトデザイン</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>WEB開発</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>ベンチャー投資</span>
-                <span style="color:#c0b8ad;">/</span>
-                <span>AIアドバイザー</span>
+              <p class="frag-body">銃声が日常だったシカゴの一角で生まれた。ルーツは富山。父はその街で日本料理店を営み、店のカウンター越しに「日本」を見て育った。親からずっと言われていたのは、ひとつだけ。「お金を稼げ」——いつしかその言葉が、漠然とした成功への渇望に変わっていた。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">大企業から、社長の鞄持ち、そして起業</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">日本への憧れから野村総合研究所に新卒入社。今の若者がシリコンバレーに向かうように、当時の自分にとって日本は世界一の革新国だった。だが、アメリカで自由に育ちすぎた自分には日本企業のカルチャーが合わず、一年で辞めた。
+
+アメリカに戻り、ビジネススクールで修士号を取得。ボストンキャリアフォーラムでBEENOSの社長に出会い、起業家としての姿勢に惹かれ"鞄持ち"として社長室に飛び込んだ。VCアソシエイトとして多くの起業家と会ううちに、自分も起業したい気持ちが抑えきれなくなった。
+
+BEENOSを退職し、米プログラミングブートキャンプ General Assembly を経て念願の起業。弁当デリバリーサービスを立ち上げたが、UBER EATSの進出を見越して撤退。次に選んだのは、まだ「出会い系」と怪しまれていたマッチングアプリだった。野村総研時代の同僚と共同創業した。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">500億円が一晩で消えた</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">「起業したい」の裏側にあったのは「成功したい」という渇望だった。自分の事業を運営しながら関わり始めたコインチェックは、まだ社員数名だった。創業者が圧倒的に優れた技術者であったこと。そして口座開設のUXがシンプルでユーザーに寄り添っていたこと。市場が伸びたとき、ここなら勝つ——自社サービスをすべて閉じてフルコミットを決めた。2号社員として、海外事業開発責任者、マーケティング、人事、Web開発を担当。
+
+毎日が綱渡りだった。山のようなタスクを処理し続け、まるで機械のようだった。この間まで詐欺と言われていた暗号通貨——その電子的なデータを売るだけで、一年余りで会社は1日に数億円を稼ぐようになった。事業は永遠に伸びるのではないか——そう錯覚するほど、感覚は麻痺していた。
+
+ある朝、約500億円がハッキングで一晩にして消えた。国際機関と連携した追跡をリードしながら、ずっと考えていた。自分たちの成功にばかり気を取られていた。そこにユーザーやメンバーの幸せはあったのか。自分自身は幸せだったといえるのか。
+
+M&amp;Aを経て退職した。お金という幻想が崩れたあと、手元に残ったのは問いだった。</p>
+              <div class="frag-links">
+                <a href="https://blockchainindustrygroup.org/coincheck-japans-largest-cryptocurrency-exchange-bitcoin-payment-processor/"
+                  target="_blank" rel="noopener noreferrer" class="frag-link">Coincheck — Blockchain Industry Group</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 強み -->
-      <div class="fragment" style="transition:opacity 1s ease 0.06s,transform 1s ease 0.06s;">
-        <button class="fragment-toggle" onclick="toggleFragment(this)">
-          <span class="frag-text">強み</span>
-          <span class="toggle-icon">+</span>
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">もっと大きな意義と成功を求めシリコンバレーへ</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
         </button>
         <div class="fragment-detail">
           <div>
             <div class="frag-inner">
-              <ul
-                style="list-style:none;padding:0;margin:0;font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;color:#6b6560;line-height:1.9;">
-                <li style="margin-bottom:18px;">
-                  <span style="color:#302c28;">未来志向</span><br>
-                  <span style="font-size:12px;color:#8b857f;">未来のビジョンを語り、人々を高揚させる</span>
-                </li>
-                <li style="margin-bottom:18px;">
-                  <span style="color:#302c28;">着想</span><br>
-                  <span style="font-size:12px;color:#8b857f;">異なる現象の間に関連性を見出す</span>
-                </li>
-                <li style="margin-bottom:18px;">
-                  <span style="color:#302c28;">個別化</span><br>
-                  <span style="font-size:12px;color:#8b857f;">一人一人のユニークさでチームをまとめる</span>
-                </li>
-                <li style="margin-bottom:18px;">
-                  <span style="color:#302c28;">学習欲</span><br>
-                  <span style="font-size:12px;color:#8b857f;">結果より学習自体に意義を見出す</span>
-                </li>
-                <li style="margin-bottom:18px;">
-                  <span style="color:#302c28;">回復志向</span><br>
-                  <span style="font-size:12px;color:#8b857f;">問題のありかを探りあて解決する</span>
-                </li>
-              </ul>
+              <p class="frag-body">お金の幻想が崩れたあと、もっと大きな意義のために働く人たちに会いたくて、シリコンバレーへ渡った。Tradecraftでプロダクトデザインとマネジメントを学び、日米のスタートアップを支援した。
+
+でも実際に見たのは、社会的な意義よりも金銭的な成功が優先される世界だった。資金調達、インナーサークル、会社のバリュエーションを上げるゲームと化したエコシステム。「世界を良くする」と言いながら、お金を稼ぐことが最優先の構造。コインチェックで見た景色と、本質的には同じだった。
+
+会社を伸ばすこと自体に興味を失っていた。唯一残った関心は、人はどうしたら幸せになれるのか、ということだった。</p>
+              <div class="frag-links">
+                <a href="https://note.com/futurehuman/n/nfea5ae39709f" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">シリコンバレー体験記</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- breath 1→2 -->
+    <section class="breath" aria-hidden="false">
+      <svg class="breath-stroke" width="56" height="2" viewBox="0 0 56 2" aria-hidden="true">
+        <line x1="0" y1="1" x2="56" y2="1" />
+      </svg>
+      <p>一瞬だけ掴んだ成功の質感。</p>
+      <p>そこに満足感はなかった。</p>
+    </section>
+
+    <!-- ── ZONE 2: 二 真理を追う ── -->
+    <section class="zone" id="zone-2">
+      <header class="zone-head">
+        <span class="zone-kanji" aria-hidden="true">二</span>
+        <span class="zone-sub">二　真理を追う</span>
+      </header>
+      <span class="zone-stroke" aria-hidden="true"></span>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">やりたいことを、片っ端から</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">お金も成功も、いったん置いた。決まった道はもうない。Spotifyで歌手デビューしてみたり、哲学や宇宙論を読み漁ったり——やりたいと思ったことを片っ端からやった。
+
+幸せは外の評価ではなく、自分の内側にあるのではないか。その問いを最も深く、最も長く追究していたのが仏陀だった。「悟り」を自分の身体で体験してみたい。そう思った。</p>
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">12日間、誰とも話さなかった</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">ダンマーディッチャでの12日間のヴィパッサナー瞑想修行。完全な沈黙の中で、自分の内側だけを観察し続けた。
 
-  <!-- CONTACT / FOOTER -->
-  <footer style="max-width:640px;margin:0 auto;padding:0 32px 120px;">
-    <div style="padding-top:48px;">
-      <p
-        style="font-family:'Zen Old Mincho',serif;font-size:clamp(17px,4vw,22px);color:#302c28;letter-spacing:0.1em;line-height:1.8;margin-bottom:40px;">
-        気になったら、気軽に。</p>
+手放してきたはずだった。お金も、成功も、肩書きも。それでも満たされなかったのは、もっと深い場所に理由があった。自分を動かしていたのは「成功をしないと認められない」という恐れと不安の感覚だった。富や名声、承認——20代の自分が欲しかったもの。それらが、さーっと消えていく感覚があった。
 
-      <div style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:40px;">
-        <a href="https://twitter.com/kagayakimann" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">𝕏</a>
-        <a href="https://instagram.com/kagayakiman" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">Instagram</a>
-        <a href="https://www.linkedin.com/in/kagakawabata" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">LinkedIn</a>
-        <a href="https://m.facebook.com/profile.php?id=100000652354295" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">Facebook</a>
-        <a href="https://note.com/futurehuman" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">note</a>
-        <a href="https://www.messenger.com/t/kagakawa" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">Messenger</a>
+これからは愛の感覚で生きたい。12日間の沈黙がくれたのは、その一点だった。以来、毎朝の瞑想が続いている。</p>
+              <div class="frag-links">
+                <a href="https://note.com/futurehuman/n/n32259e5833fd" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">ヴィパッサナー体験記</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:40px;">
-        <a href="https://open.spotify.com/show/4IT6zgmcXa4PL4HlvAnkCL?si=6a1dbf5cb0754e05&amp;nd" target="_blank"
-          rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">Podcast｜戦略的幸福論</a>
-        <a href="https://open.spotify.com/show/7ceyWzwydxB5Ycmj5jlkTp?si=786d3fbfd23b4496" target="_blank"
-          rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">Podcast｜超実践的ヒモ理論</a>
-        <a href="https://open.spotify.com/show/5XJYg9A8Th17oR3D5uC67j?si=2506386665864b77" target="_blank"
-          rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">Podcast｜STORYS
-          人生物語</a>
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">社会課題の解決すら、エゴだった</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">愛の感覚で歩み始めた先に選んだのが、エクサウィザーズだった。Well-being AIプロダクトを立ち上げ、在籍中に上場を経験。社会課題を解決する——そう信じて入った。
+
+しかし気がつけば、資本主義の力学に飲み込まれていた。シリコンバレーで外から眺めていた構造の中に、今度は自分がいた。
+
+そしてもうひとつ気づいた。社会課題を解決したいという善意の奥に、「何かに認められたい自分」がいた。それはヴィパッサナー瞑想で感じた愛ではなかった。</p>
+              <div class="frag-links">
+                <a href="https://note.com/futurehuman/n/n4a0d86b4c42c" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">自己紹介 note</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:40px;">
-        <a href="https://ao-inc.company/" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">ao
-          inc.</a>
-        <a href="https://www.storys.jp/" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:13px;color:#6b6560;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.4);">STORYS.JP</a>
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">仏教とAIを探究していたら、芸人になっていた。</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">コーチングを続けるなかで気づいたことがある。コーチングにたどり着く時点で、その人はもう変容の道に入っている。問題は、その手前にいる人たちだった。
+
+たどり着いたのが、お笑いだった。タイタンの学校へ入り、芸人カガヤキマンとして活動。人は常識から少しズレたときに気づき、笑う。瞑想やコーチングと、同じ山を別ルートで登っていた。
+
+思想を遊びながら検証する——そんな生き方がはじまった。</p>
+              <div class="frag-links">
+                <a href="https://www.youtube.com/watch?v=uLbldP4AGXY&t=4809s" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">カガヤキマン YouTube</a>
+                <a href="https://note.com/futurehuman/n/nf21c24336ea3" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">養成所に入った理由（note）</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div style="display:flex;flex-wrap:wrap;gap:6px 18px;">
-        <a href="https://gsacademy.jp/" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.35);">G's
-          Academy メンター</a>
-        <a href="https://angl.jp/kagakawa" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.35);">エンジェル投資</a>
-        <a href="https://note.com/futurehuman/n/n4a0d86b4c42c" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.35);">自己紹介
-          note</a>
-        <a href="https://kagakawa.notion.site/63d495c976034993b75506254a00edb9" target="_blank" rel="noopener noreferrer"
-          style="font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;color:#a8a095;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(160,152,140,0.35);">散歩コーチング受付</a>
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">死の淵で、空(くう)を見た</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">意識変容の最前線にあるプログラムで、臨死体験をした。この世とあの世の狭間で見たのは「空(くう)」だった。
+
+お金も成功も意味も、すでに手放してきた。ここではさらに、肉体も、息すらも手放した。意識だけになった世界では、すべてがあり、すべてがなかった。
+
+そこから戻ってきたとき、息ができることが奇跡だった。家族がいることが奇跡だった。空(くう)を体験したら、日常が輝いた。</p>
+              <div class="frag-links">
+                <a href="https://note.com/futurehuman/n/n55784b4fc56c" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">臨死体験の記録（note）</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- breath 2→3 -->
+    <section class="breath" aria-hidden="false">
+      <svg class="breath-stroke" width="56" height="2" viewBox="0 0 56 2" aria-hidden="true">
+        <line x1="0" y1="1" x2="56" y2="1" />
+      </svg>
+      <p>手放すたびに、本当に大切なコトが見えてきた。</p>
+    </section>
+
+    <!-- ── ZONE 3: 三 また日常に（還り） ── -->
+    <section class="zone" id="zone-3">
+      <header class="zone-head">
+        <span class="zone-kanji" aria-hidden="true">三</span>
+        <span class="zone-sub">三　また日常に</span>
+      </header>
+      <span class="zone-stroke" aria-hidden="true"></span>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">日常に帰ってきた</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">空を見て、帰ってきた場所は日常だった。妥協ではない。外を追い、内に潜り、すべてを手放した末に、目の前にあるものがすべてだと気づいた。
+
+AIが人間の知性を超えていく時代に入った。だからこそ、自分の内側と向き合う力が要る。意識が変われば、生き方が変わる。生き方が変わり、世界をメタ認知できると、目の前の日常を大切にできる人が増える。これまでの自分の旅路が教えてくれたのは、そういうことだった。</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div style="margin-top:100px;display:flex;flex-direction:column;align-items:flex-start;gap:26px;">
-        <img src="./profile.jpg" alt="河畠 輝"
-          style="width:88px;height:88px;border-radius:50%;object-fit:cover;filter:grayscale(0.15);">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <p style="font-family:'Zen Old Mincho',serif;font-size:10px;color:#c0b8ad;letter-spacing:0.18em;margin:0;">KAGAYAKI KAWABATA</p>
-          <img src="./kagakawa-hanko.png" alt="落款" style="width:44px;height:44px;opacity:0.85;">
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">意識変容の場をつくる</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">成功を追い、真理を追い、日常に還った。その旅路で気づいた。人の意識は、情報では変わらない。葛藤に直面した時、対話で問われたとき、同じ場を共有した時——体験を通じてしか、人は本当には変わらない。
+
+AI時代にこそ、その体験を意図的につくる必要がある。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- breath 3 — 還り → 営み -->
+    <section class="breath" aria-hidden="false">
+      <svg class="breath-stroke" width="56" height="2" viewBox="0 0 56 2" aria-hidden="true">
+        <line x1="0" y1="1" x2="56" y2="1" />
+      </svg>
+      <p>今、ここに。</p>
+    </section>
+
+    <!-- ── 営み — 現在の実践 ── -->
+    <section class="chapter" id="practices">
+      <span class="chapter-sub">現在の実践</span>
+      <h2 class="chapter-title">営み</h2>
+    </section>
+
+    <!-- ── CLUSTER: 暮らし ── -->
+    <section class="cluster">
+      <header class="cluster-head">
+        <span class="cluster-kanji" aria-hidden="true">暮</span>
+        <span class="cluster-en">KURASHI — foundation</span>
+      </header>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">家業を営む<span class="frag-sub">ao.inc. / 美容サロン9店舗</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">夫婦でao.inc.を経営。美容サロン9店舗。AIがどれだけ進化しても、人の手で人を美しくし、ホスピタリティの中で誰かを癒す体験は代替できない。テクノロジーが加速するほど、人間が人間に向き合う時間の価値は上がっていく。その時間を生み出す場を、経営でつくっている。</p>
+              <div class="frag-links">
+                <a href="https://ao-inc.company/" target="_blank" rel="noopener noreferrer" class="frag-link">ao. inc.</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">千年の森を育てる<span class="frag-sub">SHINDO</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">SHINDO — 千年の森を育む農業のカタチを共創するプロジェクト。創設メンバーとして参画。衣食住、コミュニティ、エネルギーを自ら作り出す——意識変容の先にある生き方を、土の上から実践する。</p>
+              <div class="frag-links">
+                <a href="https://shindoproject.com/" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">SHINDO</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CLUSTER: 声 ── -->
+    <section class="cluster">
+      <header class="cluster-head">
+        <span class="cluster-kanji" aria-hidden="true">声</span>
+        <span class="cluster-en">KOE — voice</span>
+      </header>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">声(Podcast)で届ける<span class="frag-sub">戦略的幸福論 / 超実践的ヒモ理論 / STORYS 人生物語</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">物語、意識変容、ポスト資本主義——テーマは違っても、すべて「気づきの入り口」を声で届けるための番組。</p>
+              <div class="pod-list">
+                <a href="https://open.spotify.com/show/4IT6zgmcXa4PL4HlvAnkCL?si=6a1dbf5cb0754e05&amp;nd" target="_blank"
+                  rel="noopener noreferrer" class="pod-card">
+                  <img src="./pod-strategic.avif" alt="戦略的幸福論" loading="lazy">
+                  <span>戦略的幸福論&#10;〜AI時代をどう生きる？〜</span>
+                </a>
+                <a href="https://open.spotify.com/show/7ceyWzwydxB5Ycmj5jlkTp?si=786d3fbfd23b4496" target="_blank"
+                  rel="noopener noreferrer" class="pod-card">
+                  <img src="./pod-himo.avif" alt="超実践的ヒモ理論" loading="lazy">
+                  <span>超実践的ヒモ理論&#10;〜ポスト資本主義の生きかた大公開〜</span>
+                </a>
+                <a href="https://open.spotify.com/show/5XJYg9A8Th17oR3D5uC67j?si=2506386665864b77" target="_blank"
+                  rel="noopener noreferrer" class="pod-card">
+                  <img src="./pod-storys.avif" alt="STORYS 人生物語" loading="lazy">
+                  <span>STORYS 人生物語&#10;｜あなたの物語、聴かせてください。</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">声の力で、つながりを育てる<span class="frag-sub">STORYS Podcast Studio</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">ポッドキャスト制作を企画から公開まで支援するスタジオ。コーチングで発信者自身の物語を引き出し、声に乗せるところから始める。届けたいのは上手な番組ではなく、聴いた人の何かが変わるコンテンツ。</p>
+              <div class="frag-links">
+                <a href="https://nexuspodcast.studio.site/" target="_blank" rel="noopener noreferrer" class="frag-link">STORYS Podcast Studio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CLUSTER: 物語 ── -->
+    <section class="cluster">
+      <header class="cluster-head">
+        <span class="cluster-kanji" aria-hidden="true">物</span>
+        <span class="cluster-en">MONOGATARI — story</span>
+      </header>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">人生物語から変容の瞬間を、地図にする<span class="frag-sub">STORYS.JP</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">株式会社和百八 発起人・取締役。人の人生の背景にある物語を、語り・残し・届けるプラットフォーム STORYS.JP を運営。深いインタビューで変容の瞬間を捉え、それを次の誰かの気づきにつなげる。</p>
+              <div class="frag-links">
+                <a href="https://storys.jp" target="_blank" rel="noopener noreferrer" class="frag-link">STORYS.JP</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">108人で助け合う<span class="frag-sub">STORYS STAND / 池尻大橋</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">ポッドキャストスタジオ・共同書店・コワーキングを備えた、108名限定の会員制拠点。池尻大橋と沖縄を皮切りに展開する。声と本と人が交わる場所で、意識変容が自然に起きる生態系をつくる。</p>
+              <div class="frag-links">
+                <a href="https://storyspodcasthub.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="frag-link">STORYS STAND</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CLUSTER: 対話 ── -->
+    <section class="cluster">
+      <header class="cluster-head">
+        <span class="cluster-kanji" aria-hidden="true">対</span>
+        <span class="cluster-en">TAIWA — dialogue</span>
+      </header>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">内面と向き合う対話<span class="frag-sub">ICF認定コーチ</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">瞑想で意識の変容を届けたいという願いが生まれた。でも瞑想は万人の入口にはならない。対話なら、日常の延長線上で人は変われる。自分自身が恐れと不安で走り続け、エゴに気づき、愛の感覚に立ち戻った経験があるからこそ、他者の内面の変容に寄り添える。コーチングは、目の前のひとりと向き合う、もっとも静かな意識変容の手段。
+
+国際コーチング連盟認定コーチ（ACC）。累計クライアント数160人以上、累計セッション時間500時間以上（2026/3/15時点）。
+
+過去のクライアント：シード〜シリーズB起業家 / 社会起業家 / 元外資系日本法人CEO / 学生起業家 / 元大手IT外資系PM / 大手外資系コンサルタント / スタートアップ役員 / 急成長スタートアップCMO / デザイン会社CEO / デザイン会社役員 / 大手外資系エンタメ企業マネージャー / 美容系会社CEO / メガベンチャー開発責任者 / メガベンチャー事業責任者 / フリーランス / プロコーチ / キャリアコンサルタント / お笑い芸人</p>
+              <a class="cta-card" href="https://kagakawa.notion.site/63d495c976034993b75506254a00edb9" target="_blank" rel="noopener noreferrer">
+                <span class="cta-title">散歩コーチング受付 <span class="cta-arrow" aria-hidden="true">→</span></span>
+                <span class="cta-sub">歩きながら、静かに一時間。コーチングについて詳しく。</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CLUSTER: 時代 ── -->
+    <section class="cluster">
+      <header class="cluster-head">
+        <span class="cluster-kanji" aria-hidden="true">時</span>
+        <span class="cluster-en">JIDAI — era</span>
+      </header>
+
+      <div class="fragment">
+        <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+          <span class="frag-text">AIの劇的進化を、現場から伴走する<span class="frag-sub">Creative2 / AI顧問</span></span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="fragment-detail">
+          <div>
+            <div class="frag-inner">
+              <p class="frag-body">メディア企業Creative2のAI顧問として2025年から参画。急激に進化するAIを、事業の現場から伴走しながら体験している。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── 別記 (経歴 + 強み) ── -->
+  <section class="appendix">
+    <p class="appendix-label">別記</p>
+
+    <div class="fragment">
+      <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+        <span class="frag-text">経歴</span>
+        <span class="toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="fragment-detail">
+        <div>
+          <div class="frag-inner">
+            <p class="frag-body" style="margin-bottom:22px;">大企業、中小企業、ベンチャーキャピタル、起業、スモビジ経営、フリーランス、急成長ベンチャー、上場前後と多様なフェーズを経験を活かした支援をしています。</p>
+            <ul class="career-list">
+              <li><span class="career-year">2026 — 現在</span><span><span class="career-where">株式会社和百八（STORYS.JP）</span><span class="career-role"> — 発起人 / 取締役</span></span></li>
+              <li><span class="career-year">2025 — 現在</span><span><span class="career-where">Creative2</span><span class="career-role"> — AI 顧問</span></span></li>
+              <li><span class="career-year">2022 — 現在</span><span><span class="career-where">ao. inc.</span><span class="career-role"> — 取締役</span></span></li>
+              <li><span class="career-year">2022 — 現在</span><span><span class="career-where">G's ACADEMY</span><span class="career-role"> — メンター</span></span></li>
+              <li><span class="career-year">2020 – 2024</span><span><span class="career-where">エクサウィザーズ</span><span class="career-role"> — プロダクトマネージャー / UX デザイナー</span></span></li>
+              <li><span class="career-year">2018 – 2019</span><span><span class="career-where">IssueHunt株式会社</span><span class="career-role"> — COO / UI/UX デザイナー / グロース</span></span></li>
+              <li><span class="career-year">2018</span><span><span class="career-where">Tradecraft（サンフランシスコ）</span><span class="career-role"> — プロダクトデザイナー</span></span></li>
+              <li><span class="career-year">2016 – 2018</span><span><span class="career-where">コインチェック</span><span class="career-role"> — 2人目社員 → 海外事業責任者 → アドバイザー</span></span></li>
+              <li><span class="career-year">2015 — 現在</span><span><span class="career-where">独立 / フリーランス</span><span class="career-role"> — PM / エグゼクティブコーチ / エンジェル投資家 / AI アドバイザー / ポッドキャスター</span></span></li>
+              <li><span class="career-year">2015</span><span><span class="career-where">侍エンジニア塾</span><span class="career-role"> — 講師</span></span></li>
+              <li><span class="career-year">2014 – 2016</span><span><span class="career-where">HACKMAI（シカゴ）/ BRIGHT CLASS（東京）</span><span class="career-role"> — 創業者</span></span></li>
+              <li><span class="career-year">2013 – 2014</span><span><span class="career-where">BEENOS</span><span class="career-role"> — ベンチャー投資アソシエイト</span></span></li>
+              <li><span class="career-year">2010 – 2011</span><span><span class="career-where">野村総合研究所</span><span class="career-role"> — システムアナリスト</span></span></li>
+            </ul>
+            <h4 class="skills-label">スキル</h4>
+            <div class="skills-list">
+              <span>新規事業開発</span><span class="skill-sep">/</span>
+              <span>プロダクトマネージャー</span><span class="skill-sep">/</span>
+              <span>デジタルプロダクトデザイン</span><span class="skill-sep">/</span>
+              <span>WEB開発</span><span class="skill-sep">/</span>
+              <span>ベンチャー投資</span><span class="skill-sep">/</span>
+              <span>AIアドバイザー</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="fragment">
+      <button class="fragment-toggle" aria-expanded="false" onclick="toggleFragment(this)">
+        <span class="frag-text">強み</span>
+        <span class="toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="fragment-detail">
+        <div>
+          <div class="frag-inner">
+            <ul class="strengths-list">
+              <li><span class="strength-name">未来志向</span><span class="strength-desc">未来のビジョンを語り、人々を高揚させる</span></li>
+              <li><span class="strength-name">着想</span><span class="strength-desc">異なる現象の間に関連性を見出す</span></li>
+              <li><span class="strength-name">個別化</span><span class="strength-desc">一人一人のユニークさでチームをまとめる</span></li>
+              <li><span class="strength-name">学習欲</span><span class="strength-desc">結果より学習自体に意義を見出す</span></li>
+              <li><span class="strength-name">回復志向</span><span class="strength-desc">問題のありかを探りあて解決する</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER (縁) ── -->
+  <footer class="footer">
+    <p class="footer-intro">気になったら、気軽に。</p>
+
+    <div class="footer-group">
+      <span class="footer-group-label">声を聴く</span>
+      <div class="footer-links">
+        <a class="footer-link" href="https://open.spotify.com/show/4IT6zgmcXa4PL4HlvAnkCL?si=6a1dbf5cb0754e05&amp;nd" target="_blank" rel="noopener noreferrer">Podcast｜戦略的幸福論</a>
+        <a class="footer-link" href="https://open.spotify.com/show/7ceyWzwydxB5Ycmj5jlkTp?si=786d3fbfd23b4496" target="_blank" rel="noopener noreferrer">Podcast｜超実践的ヒモ理論</a>
+        <a class="footer-link" href="https://open.spotify.com/show/5XJYg9A8Th17oR3D5uC67j?si=2506386665864b77" target="_blank" rel="noopener noreferrer">Podcast｜STORYS 人生物語</a>
+        <a class="footer-link" href="https://note.com/futurehuman" target="_blank" rel="noopener noreferrer">note</a>
+      </div>
+    </div>
+
+    <div class="footer-group">
+      <span class="footer-group-label">仕事を知る</span>
+      <div class="footer-links">
+        <a class="footer-link" href="https://ao-inc.company/" target="_blank" rel="noopener noreferrer">ao inc.</a>
+        <a class="footer-link" href="https://www.storys.jp/" target="_blank" rel="noopener noreferrer">STORYS.JP</a>
+        <a class="footer-link" href="https://gsacademy.jp/" target="_blank" rel="noopener noreferrer">G's Academy メンター</a>
+        <a class="footer-link" href="https://angl.jp/kagakawa" target="_blank" rel="noopener noreferrer">エンジェル投資</a>
+      </div>
+    </div>
+
+    <div class="footer-group">
+      <span class="footer-group-label">触れる</span>
+      <div class="footer-links">
+        <a class="footer-link" href="https://twitter.com/kagayakimann" target="_blank" rel="noopener noreferrer">𝕏 / Twitter</a>
+        <a class="footer-link" href="https://instagram.com/kagayakiman" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/kagakawabata" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="footer-link" href="https://m.facebook.com/profile.php?id=100000652354295" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a class="footer-link" href="https://www.messenger.com/t/kagakawa" target="_blank" rel="noopener noreferrer">Messenger</a>
+        <a class="footer-link" href="https://kagakawa.notion.site/63d495c976034993b75506254a00edb9" target="_blank" rel="noopener noreferrer">散歩コーチング受付</a>
+        <a class="footer-link" href="https://note.com/futurehuman/n/n4a0d86b4c42c" target="_blank" rel="noopener noreferrer">自己紹介 note</a>
+      </div>
+    </div>
+
+    <div class="footer-sign">
+      <img class="profile" src="./profile.jpg" alt="河畠 輝" loading="lazy">
+      <div class="sign-row">
+        <p class="sign-romaji">KAGAYAKI KAWABATA</p>
+        <img class="hanko" src="./kagakawa-hanko.png" alt="落款" loading="lazy">
+      </div>
+    </div>
+
+    <nav class="footer-foot" aria-label="Language">
+      <span class="current" aria-current="page">日本語</span>
+      <span class="divider" aria-hidden="true">/</span>
+      <a href="https://kagakawa.com/" aria-label="Switch to English">English</a>
+    </nav>
   </footer>
 
-  <script>
-    function toggleFragment(btn) {
-      var detail = btn.nextElementSibling;
-      detail.classList.toggle('is-open');
-      btn.classList.toggle('is-open');
-    }
-
-    function observeFade(selector, threshold) {
-      document.querySelectorAll(selector).forEach(function (el) {
-        var obs = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) { el.classList.add('is-visible'); obs.disconnect(); }
-          });
-        }, { threshold: threshold });
-        obs.observe(el);
-      });
-    }
-
-    observeFade('.fragment', 0.15);
-    observeFade('.zone-label', 0.3);
-    observeFade('.name-block', 0.3);
-    observeFade('.tagline', 0.3);
-    observeFade('.breath', 0.3);
-
-    var indicator = document.getElementById('scroll-indicator');
-    var arrow = document.getElementById('scroll-arrow');
-    var scrolled = false;
-
-    // At 400ms: set opacity:1 with 6.5s CSS delay (matches React show+transition logic)
-    setTimeout(function () {
-      if (!scrolled) {
-        indicator.style.transition = 'opacity 1s ease 6.5s';
-        indicator.style.opacity = '1';
-      }
-    }, 400);
-
-    // At 7400ms: start arrow bounce animation
-    setTimeout(function () {
-      if (!scrolled) {
-        arrow.style.animation = 'scrollHint 2s ease-in-out infinite';
-      }
-    }, 7400);
-
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 80 && !scrolled) {
-        scrolled = true;
-        indicator.style.transition = 'opacity 0.4s ease';
-        indicator.style.opacity = '0';
-        arrow.style.animation = 'none';
-      }
-    }, { passive: true });
-  </script>
 </body>
 
 </html>
