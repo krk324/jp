@@ -26,6 +26,7 @@
   observeVisible('.cluster', 0.12);
   observeVisible('.name-block', 0.3);
   observeVisible('.tagline', 0.3);
+  observeVisible('.profile-overview', 0.18);
   observeVisible('.breath', 0.28);
 
   var indicator = document.getElementById('scroll-indicator');
