@@ -316,6 +316,10 @@ button {
   border-top: 1px solid var(--c-border-1);
 }
 
+.profile-heading {
+  padding: 24px 0;
+}
+
 .snapshot-label {
   font-family: var(--ff-gothic);
   font-size: 10px;
@@ -345,8 +349,11 @@ button {
 
 .career-snapshot {
   margin-top: 44px;
-  padding-top: 24px;
   border-top: 1px solid var(--c-border-1);
+}
+
+.career-toggle .snapshot-label {
+  margin: 0;
 }
 
 /* ── Main column ─────────────────────────────── */
