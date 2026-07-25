@@ -322,9 +322,11 @@ button {
 
 .snapshot-label {
   font-family: var(--ff-gothic);
-  font-size: 10px;
-  color: var(--c-stone-4);
-  letter-spacing: 0.28em;
+  font-size: clamp(13px, 3vw, 15px);
+  color: var(--c-ink-5);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  line-height: 1.6;
   margin: 0 0 10px;
 }
 
@@ -354,6 +356,15 @@ button {
 
 .career-toggle .snapshot-label {
   margin: 0;
+}
+
+.career-toggle .toggle-icon {
+  margin-top: 4px;
+}
+
+.career-toggle .toggle-icon::before,
+.career-toggle .toggle-icon::after {
+  background: var(--c-ink-6);
 }
 
 /* ── Main column ─────────────────────────────── */
